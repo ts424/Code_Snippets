@@ -1,0 +1,49 @@
+class Solution {
+    public String reverse(String ss){
+        String result="";
+        for(int i=0;i<ss.length();i++){
+            char c=ss.charAt(i);
+            result=c+result;
+        }
+        return result;
+    }
+    public String reverseWords(String s) {
+        String temp="";
+        s=s.trim();
+        String result="";
+        s=s+' ';
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            if(c!=' ')temp=temp+c;
+            else{
+                String add=reverse(temp);
+                result+=add+" ";
+                temp="";
+            }
+        }
+        return result.trim();
+        
+    }
+}
+
+
+
+
+// class Solution {
+//     public String reverseWords(String s) {
+//         StringBuilder result = new StringBuilder();
+//         String[] parts = s.split(" ");
+
+//         for (String part : parts) {
+//             StringBuilder sb = new StringBuilder(part);
+//             String reversedStr = sb.reverse().toString();
+//             result.append(reversedStr);
+//             result.append(" ");
+//         }
+//         result.delete(result.length() - 1, result.length());
+//         return result.toString();
+//     }
+// }
+
+
+
