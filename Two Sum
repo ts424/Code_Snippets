@@ -1,0 +1,24 @@
+import java.util.HashMap;
+import java.util.Map;
+
+// this  has a time complexity of O(n) bbut also has a space complexity O(n)
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int[] arr = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            int required = target - nums[i];
+            if (map.containsKey(required)) {
+                arr[0] = map.get(required);
+                arr[1] = i;
+                return arr;
+            } else {
+                map.put(nums[i], i);
+            }
+        }
+        return null;
+    }
+}
+
+
