@@ -1,0 +1,16 @@
+class Solution {
+    public int titleToNumber(String columnTitle) {
+        int columnNumber = 0;
+        int n = columnTitle.length();
+        
+        for (int i = 0; i < n; i++) {
+            char c = columnTitle.charAt(i);
+            int value = c - 'A' + 1; 
+            System.out.print(columnNumber+", ");
+            // Multiply value by appropriate power of 26 based on position
+            columnNumber += value * Math.pow(26, n - i - 1);
+        }
+        
+        return columnNumber;
+    }
+}
